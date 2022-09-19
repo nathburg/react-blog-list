@@ -7,10 +7,11 @@ export default function Main() {
   console.log(posts);
   return (
     <div>
-      {posts.map(({ id, title, subtitle, text }) => (
+      {posts.map(({ id, title, subtitle, text, image }) => (
         <div key={id}>
           <h2>{title}</h2>
           <h3>{subtitle}</h3>
+          <img src={`${image}`} />
           <p>{text}</p>
         </div>
       ))}
