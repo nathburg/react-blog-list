@@ -1,4 +1,3 @@
-import React from 'react';
 import { createClient } from '@supabase/supabase-js';
 
 
@@ -12,4 +11,9 @@ export function checkError({ data, error }) {
     throw error;
   }
   return data;
+}
+
+export async function getPosts() {
+  const resp = await client.from('blogs').select('*');
+  return checkError(resp);
 }

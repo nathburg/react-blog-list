@@ -1,10 +1,19 @@
-import React from 'react';
-import { client, checkError } from '../../services/client';
+import React, { useState } from 'react';
+import { usePosts } from '../../hooks/usePosts';
+import { client, checkError, getPosts } from '../../services/client';
 
 export default function Main() {
-  // const data = checkError(client.from('blogs').select('*'));
-  console.log(REACT_APP_);
+  const posts = usePosts();
+  console.log(posts);
   return (
-    <div>Main</div>
+    <div>
+      {posts.map(({ id, title, subtitle, text }) => (
+        <div key={id}>
+          <h2>{title}</h2>
+          <h3>{subtitle}</h3>
+          <p>{text}</p>
+        </div>
+      ))}
+    </div>
   );
 }
