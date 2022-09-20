@@ -6,10 +6,7 @@ export default function Main() {
   return (
     <>
       {posts.map(({ id, title, subtitle, text, image }) => (
-        <div key={id}>
-          {BlogCard({ title, subtitle, text, image })}
-        </div>
-        
+        <BlogCard key={id} {...{ title, subtitle, text, image }} />
       ))}
     </>
   );
