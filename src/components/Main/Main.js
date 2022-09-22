@@ -5,8 +5,8 @@ export default function Main() {
   const posts = usePosts();
   return (
     <>
-      {posts.map(({ id, title, subtitle, text, image }) => (
-        <BlogCard key={id} {...{ title, subtitle, text, image }} />
+      {posts.map((post) => (
+        <BlogCard key={post.id} {...post} />
       ))}
     </>
   );
